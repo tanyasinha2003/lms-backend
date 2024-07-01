@@ -18,7 +18,8 @@ const login = async (req, res) => {
   try {
     // Find user in database
     console.log("before user find one query");
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }, { _id: 1, email: 1, password: 1 });
+
     console.log("after user find one query");
     if (!user) {
       return res.status(404).json({ message: "User not found" });

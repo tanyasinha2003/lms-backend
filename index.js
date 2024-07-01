@@ -37,7 +37,7 @@ app.get("/", async (req, res) => {
 
 // app.post("/api", loginRegRoutes);
 
-app.get("/api", (req, res) => {
+app.get("/api", async(req, res) => {
   res.send("api thing");
 });
 

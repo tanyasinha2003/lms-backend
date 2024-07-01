@@ -17,7 +17,7 @@
     ],
     "functions":{
         "api/login":{
-            "maxDuration": 15
+            "maxDuration": 20
         }
     }
 }

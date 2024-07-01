@@ -34,7 +34,7 @@ app.get('/api/courses', async (req, res) => {
 app.get("/", async (req, res) => {
   res.send("hello");
 });
-
+console.log("Heyy in index.js");
 app.use("/api", loginRegRoutes);
 
 // Error handler middleware

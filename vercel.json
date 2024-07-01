@@ -14,10 +14,6 @@
             { "key": "Access-Control-Allow-Headers", "value": "Origin, X-Requested-With, Content-Type, Accept, Authorization" }
           ]
         }
-    ],
-    "functions":{
-        "api/login":{
-            "maxDuration": 20
-        }
-    }
+    ]
+    
 }

@@ -37,6 +37,16 @@ app.get("/", async (req, res) => {
 console.log("Heyy in index.js");
 app.use("/api", loginRegRoutes);
 
+// Add this to your index.js or server.js file
+app.get('/api/test-db-connection', async (req, res) => {
+  try {
+    await connectDB(); // Attempt to connect to the database
+    res.status(200).json({ message: 'Database connected successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Database connection failed', error: error.message });
+  }
+});
+
 // Error handler middleware
 app.use(errorHandler);
 

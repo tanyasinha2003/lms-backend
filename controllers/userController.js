@@ -13,7 +13,7 @@ const jwtKey = process.env.JWT_SECRET;
 // Function to handle user login
 const login = async (req, res) => {
   console.log("Hey here in login");
-  const { email, password } = req.body;
+  const { email, password} = req.body;
 
   try {
     // Find user in database

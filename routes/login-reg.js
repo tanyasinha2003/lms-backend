@@ -6,9 +6,14 @@ const router = express.Router();
 
 // Login route
 
-console.log("heyy routesss fileee");
 
-router.post('/login', authController.login);
+
+// router.post('/login', authController.login);
+
+router.post('/login', (req, res) => {
+    res.send('Login endpoint reached');
+});
+
 
 // Route to register a new user
 router.post('/register', authController.register);

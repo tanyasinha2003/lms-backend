@@ -18,7 +18,7 @@ const login = async (req, res) => {
   try {
     // Find user in database
     console.log("before user find one query");
-    const user = await User.findOne({ email }).select('_id name email').limit(1);
+    const user = await User.findOne({ email }).limit(1);
 
 
     // const user = await User.findOne({ email }).limit(1);

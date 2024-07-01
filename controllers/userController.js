@@ -13,12 +13,12 @@ const jwtKey = process.env.JWT_SECRET;
 // Function to handle user login
 const login = async (req, res) => {
   console.log("Hey here in login");
-  const { email, password,userType} = req.body;
+  const { email, password} = req.body;
 
   try {
     // Find user in database
     console.log("before user find one query");
-    const user = await User.findOne({ email,userType }).limit(1);
+    const user = await User.findOne({ email }).limit(1);
 
     console.log("after user find one query");
     if (!user) {

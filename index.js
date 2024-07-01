@@ -61,6 +61,10 @@ app.get('/api/courses', async (req, res) => {
     }
   });
 
+  app.get("/", async(req, res) => {
+    print("Hellooo");
+  })
+
 // login routes
 app.use("/api", loginRegRoutes);
 

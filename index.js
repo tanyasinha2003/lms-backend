@@ -62,7 +62,7 @@ app.get('/api/courses', async (req, res) => {
   });
 
   app.get("/", async(req, res) => {
-    print("Hellooo");
+   res.send("hello");
   })
 
 // login routes

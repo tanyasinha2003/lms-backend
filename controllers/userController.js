@@ -17,24 +17,27 @@ const login = async (req, res) => {
 
   try {
     // Find user in database
+    console.log("before user find one query");
     const user = await User.findOne({ email });
+    console.log("after user find one query");
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-
+    console.log("before bcrypt");
     // Validate password
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log("after bcrypt");
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
-
+    console.log("before jwt");
     // Generate JWT token
     const token = jwt.sign(
       { userId: user._id },
       jwtKey,
       { expiresIn: "1h" } // Token expires in 1 hour
     );
-
+    console.log("after jwt");
     res
       .status(200)
       .json({ message: "logged in", token: token, userType: user.userType });

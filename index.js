@@ -19,9 +19,9 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.post('/api/videos', videoRoutes);
-app.post('/api/sign-upload', signUploadRoutes);
-app.post('/api/courses', courseRoutes);
+app.use('/api/videos', videoRoutes);
+app.use('/api/sign-upload', signUploadRoutes);
+app.use('/api/courses', courseRoutes);
 app.get('/api/courses', async (req, res) => {
   try {
     const courses = await Course.find();
@@ -35,7 +35,7 @@ app.get("/", async (req, res) => {
   res.send("hello");
 });
 
-app.post("/api", loginRegRoutes);
+app.use("/api", loginRegRoutes);
 
 // Error handler middleware
 app.use(errorHandler);

@@ -35,11 +35,7 @@ app.get("/", async (req, res) => {
   res.send("hello");
 });
 
-// app.post("/api", loginRegRoutes);
-
-app.get("/api", async(req, res) => {
-  res.send("api thing");
-});
+app.post("/api", loginRegRoutes);
 
 // Error handler middleware
 app.use(errorHandler);

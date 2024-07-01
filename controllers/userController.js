@@ -18,8 +18,8 @@ const login = async (req, res) => {
   try {
     // Find user in database
     console.log("before user find one query");
-    const user = await User.findOne({ email }).explain();
-console.log(user);
+    const user = await User.findOne({ email }).limit(1);
+
     // const user = await User.findOne({ email }).limit(1);
 
     console.log("after user find one query");

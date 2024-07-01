@@ -38,9 +38,21 @@ app.get("/", async (req, res) => {
 app.use("/api", loginRegRoutes);
 
 // Add this to your index.js or server.js file
+
 app.get('/api/test-db-connection', async (req, res) => {
   try {
-    await connectDB(); // Attempt to connect to the database
+    const connectionPromise = connectDB(); // Start connecting to the database
+
+    // Set a timeout for the database connection attempt
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => {
+        reject(new Error('Database connection timed out'));
+      }, 5000); // Timeout after 10 seconds (adjust as needed)
+    });
+
+    // Race between the connection attempt and the timeout
+    await Promise.race([connectionPromise, timeoutPromise]);
+
     res.status(200).json({ message: 'Database connected successfully' });
   } catch (error) {
     res.status(500).json({ message: 'Database connection failed', error: error.message });

@@ -2,7 +2,7 @@
     "version": 2,
     "functions": {
         "index": {
-          "runtime": "nodejs20.x", 
+          "runtime": "@vercel/node@1.0.0", 
           "maxDuration": 15
           
         }

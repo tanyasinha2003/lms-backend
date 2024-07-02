@@ -18,12 +18,6 @@ const port = process.env.VITE_PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-app.use((req, res, next) => {
-  req.setTimeout(30000, () => { // Set timeout to 10 seconds
-    res.status(504).json({ message: 'Request timed out, after 30 sec delay' });
-  });
-  next();
-});
 
 // Routes
 app.use('/api/videos', videoRoutes);

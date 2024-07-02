@@ -59,7 +59,7 @@ const register = async (req, res) => {
     //   return res.status(400).json({ message: "User already exists" });
     // }
   
-
+    console.log("hey reg start");
     // Create a new user instance
    let user = new User({
       name,
@@ -67,13 +67,14 @@ const register = async (req, res) => {
       email,
       userType,
     });
-
+    console.log("hey salt start");
     // Hash password
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
-
+    console.log("hey salt end");
     // Save user to database
     await user.save();
+    console.log("save end");
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {

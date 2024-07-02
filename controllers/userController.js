@@ -53,14 +53,15 @@ const register = async (req, res) => {
   const { name, password, email, userType } = req.body;
 
   try {
-    // Check if user with the same email exists
-    let user = await User.findOne({ email });
-    if (user) {
-      return res.status(400).json({ message: "User already exists" });
-    }
+    // // Check if user with the same email exists
+    // let user = await User.findOne({ email }).limit(1);
+    // if (user) {
+    //   return res.status(400).json({ message: "User already exists" });
+    // }
+  
 
     // Create a new user instance
-    user = new User({
+   let user = new User({
       name,
       password,
       email,
